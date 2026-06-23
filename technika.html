@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technika | Ateliér55</title>
+  <meta name="description" content="Technika k zapůjčení v Ateliér55. Vyber si vybavení a přidej ho do rezervační poptávky." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand" aria-label="Ateliér55 domů">
+        <img src="images/logo.png" alt="Logo Ateliér55" class="brand-logo" />
+        <span class="brand-text">Ateliér55</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav">
+        <a href="index.html">Domů</a>
+        <a href="atelier.html">Ateliér</a>
+        <a href="technika.html" class="active">Technika</a>
+        <a href="rezervace.html">Rezervace</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Technika</p>
+        <h1>Vybavení k zapůjčení</h1>
+        <p class="page-lead">
+          Vyber si techniku, kterou chceš přidat do své poptávky. Přesná dostupnost se potvrzuje individuálně.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cart-bar">
+          <div>
+            <strong>Vybraná technika:</strong>
+            <span id="cart-count">0 položek</span>
+          </div>
+          <a href="rezervace.html" class="btn btn-primary">Pokračovat k poptávce</a>
+        </div>
+
+        <div class="gear-grid">
+          <article class="gear-card">
+            <div class="gear-card-body">
+              <p class="gear-category">Kamera</p>
+              <h3>Sony A7 IV</h3>
+              <p>Univerzální full-frame kamera vhodná pro foto i video produkci.</p>
+              <div class="gear-meta">
+                <span>1 200 Kč / den</span>
+              </div>
+              <button class="btn btn-secondary add-to-cart" data-name="Sony A7 IV" data-price="1200">Přidat do poptávky</button>
+            </div>
+          </article>
+
+          <article class="gear-card">
+            <div class="gear-card-body">
+              <p class="gear-category">Objektiv</p>
+              <h3>Sony 24–70 mm f/2.8</h3>
+              <p>Flexibilní zoom pro portrét, produkt i běžné produkční použití.</p>
+              <div class="gear-meta">
+                <span>600 Kč / den</span>
+              </div>
+              <button class="btn btn-secondary add-to-cart" data-name="Sony 24–70 mm f/2.8" data-price="600">Přidat do poptávky</button>
+            </div>
+          </article>
+
+          <article class="gear-card">
+            <div class="gear-card-body">
+              <p class="gear-category">Světlo</p>
+              <h3>Aputure 300D</h3>
+              <p>Výkonné LED světlo pro natáčení, rozhovory i produktové focení.</p>
+              <div class="gear-meta">
+                <span>900 Kč / den</span>
+              </div>
+              <button class="btn btn-secondary add-to-cart" data-name="Aputure 300D" data-price="900">Přidat do poptávky</button>
+            </div>
+          </article>
+
+          <article class="gear-card">
+            <div class="gear-card-body">
+              <p class="gear-category">Audio</p>
+              <h3>RØDE Wireless GO II</h3>
+              <p>Bezdrátový mikrofonní set pro rozhovory, podcasty a video obsah.</p>
+              <div class="gear-meta">
+                <span>450 Kč / den</span>
+              </div>
+              <button class="btn btn-secondary add-to-cart" data-name="RØDE Wireless GO II" data-price="450">Přidat do poptávky</button>
+            </div>
+          </article>
+
+          <article class="gear-card">
+            <div class="gear-card-body">
+              <p class="gear-category">Grip</p>
+              <h3>Stativ Manfrotto</h3>
+              <p>Stabilní stativ vhodný pro fotoaparát i lehčí video setupy.</p>
+              <div class="gear-meta">
+                <span>250 Kč / den</span>
+              </div>
+              <button class="btn btn-secondary add-to-cart" data-name="Stativ Manfrotto" data-price="250">Přidat do poptávky</button>
+            </div>
+          </article>
+
+          <article class="gear-card">
+            <div class="gear-card-body">
+              <p class="gear-category">Světlo</p>
+              <h3>Softbox set</h3>
+              <p>Měkké světlo pro portrétní focení, beauty obsah a produktové sety.</p>
+              <div class="gear-meta">
+                <span>350 Kč / den</span>
+              </div>
+              <button class="btn btn-secondary add-to-cart" data-name="Softbox set" data-price="350">Přidat do poptávky</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Ateliér55</h3>
+        <p>Kreativní prostor pro fotografii, film a produkci.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p><a href="mailto:production@nmmnt.com">production@nmmnt.com</a></p>
+        <p><a href="tel:+420702099678">+420 702 099 678</a></p>
+      </div>
+      <div>
+        <h4>Adresa</h4>
+        <p>Dobrovského 1038/35<br />779 00 Olomouc</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
