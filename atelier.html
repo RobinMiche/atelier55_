@@ -25,57 +25,58 @@
       <div class="section-label">Studio</div>
       <h1 class="page-title">Atelier 55</h1>
       <p class="page-body">
-        Světlý fotografický ateliér v srdci Prahy. Prostor je navržen pro komerční focení, 
+        Světlý fotografický ateliér v srdci Prahy. Prostor je navržen pro komerční focení,
         portréty, módní editorialy i video produkci. Kapacita až 15 osob.
       </p>
 
-      <div class="grid-2" style="margin-top: 3rem;">
-        <div class="card">
-          <div class="card-media">
-            <img src="images/atelier-1.jpg" alt="Hlavní sál">
-          </div>
-          <div class="card-body">
-            <div class="card-title">Hlavní sál</div>
-            <div class="card-meta">120 m² · Denní světlo</div>
-          </div>
+      <!-- 
+        GALERIE — jak přidat fotku:
+        Zkopíruj jeden <div class="gallery-item"> blok níže
+        a změň src na cestu k nové fotce v images/gallery/
+      -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <div class="gallery-item" data-index="0">
+          <img src="images/gallery/atelier-1.jpg" alt="Atelier 55 — pohled 1" loading="lazy">
         </div>
-        <div class="card">
-          <div class="card-media">
-            <img src="images/atelier-2.jpg" alt="Zázemí">
-          </div>
-          <div class="card-body">
-            <div class="card-title">Zázemí & šatna</div>
-            <div class="card-meta">Oddělená místnost · Líčení</div>
-          </div>
+
+        <div class="gallery-item" data-index="1">
+          <img src="images/gallery/atelier-2.jpg" alt="Atelier 55 — pohled 2" loading="lazy">
         </div>
+
+        <div class="gallery-item" data-index="2">
+          <img src="images/gallery/atelier-3.jpg" alt="Atelier 55 — pohled 3" loading="lazy">
+        </div>
+
+        <!-- Sem přidávej další fotky stejným způsobem -->
+
       </div>
 
-      <table class="specs-table" style="margin-top: 3rem; max-width: 600px;">
-        <tr>
-          <td>Plocha</td>
-          <td>120 m²</td>
-        </tr>
-        <tr>
-          <td>Výška stropu</td>
-          <td>4,5 m</td>
-        </tr>
-        <tr>
-          <td>Světlo</td>
-          <td>Denní + studiové záblesky</td>
-        </tr>
-        <tr>
-          <td>Pozadí</td>
-          <td>Cyklorika bílá / šedá / černá</td>
-        </tr>
-        <tr>
-          <td>Kapacita</td>
-          <td>až 15 osob</td>
-        </tr>
-        <tr>
-          <td>Parkování</td>
-          <td>2 místa před budovou</td>
-        </tr>
+      <!-- LIGHTBOX -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
+        <div class="lightbox-img-wrap">
+          <img src="" alt="" id="lightboxImg">
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+      </div>
+
+      <!-- SPECS -->
+      <table class="specs-table" style="margin-top: 4rem; max-width: 600px;">
+        <tr><td>Plocha</td><td>120 m²</td></tr>
+        <tr><td>Výška stropu</td><td>4,5 m</td></tr>
+        <tr><td>Světlo</td><td>Denní + studiové záblesky</td></tr>
+        <tr><td>Pozadí</td><td>Cyklorika bílá / šedá / černá</td></tr>
+        <tr><td>Kapacita</td><td>až 15 osob</td></tr>
+        <tr><td>Parkování</td><td>2 místa před budovou</td></tr>
       </table>
+
+      <div style="margin-top: 2.5rem;">
+        <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervovat termín</a>
+      </div>
+
     </section>
   </main>
 
