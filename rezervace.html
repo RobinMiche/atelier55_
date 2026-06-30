@@ -65,6 +65,7 @@
           <!-- Skrytá pole pro Formspree -->
           <input type="hidden" name="_subject" value="Nová rezervace — Ateliér 55">
           <input type="text"   name="_gotcha"  style="display:none">
+          <input type="hidden" name="_replyto" value="">
 
           <div class="form-group">
             <label class="form-label" for="name">Jméno a příjmení *</label>
@@ -172,7 +173,7 @@
 
   <footer>
     <div class="page-footer">
-      <span class="footer-copy">© 2025 Ateliér 55</span>
+      <span class="footer-copy">© 2026 Ateliér 55</span>
       <a href="rezervace.html" class="pill-btn">Rezervace</a>
     </div>
   </footer>
@@ -190,6 +191,13 @@
   <!-- Kalendář -->
   <script src="js/script.js"></script>
   <script src="js/calendar.js"></script>
+<script>
+  document.getElementById('email').addEventListener('input', function ()
+  {
+    const replyTo = document.querySelector('input[name="_replyto"]');
+    if (replyTo) replyTo.value = this.value;
+  });
+</script>
 
 </body>
 </html>
