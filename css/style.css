@@ -998,3 +998,17 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/* Hlavní nadpisy — bezpatkový font, tučně */
+.page-title,
+.hero-360-content .hero-title {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* Logo menší */
+.logo-img {
+  height: 1.2rem;
+  width: auto;
+  display: block;
+}
