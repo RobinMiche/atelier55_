@@ -230,13 +230,14 @@ img {
 }
 
 .page-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   line-height: 1.2;
   margin-bottom: 2rem;
 }
+
 
 .page-body {
   font-size: 1rem;
@@ -788,14 +789,15 @@ img {
 }
 
 .hero-360-content .hero-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   line-height: 1.1;
   margin-bottom: 0.4rem;
   text-shadow: 0 2px 20px rgba(0,0,0,0.4);
 }
+
 
 .hero-360-content .hero-subtitle {
   font-size: 0.72rem;
@@ -948,10 +950,11 @@ img {
 }
 /* Logo jako obrázek */
 .logo-img {
-  height: 2rem;
+  height: 1.2rem;
   width: auto;
   display: block;
 }
+
 
 /* Spec highlights — velká čísla */
 .specs-highlights {
@@ -997,18 +1000,4 @@ img {
   .specs-highlights {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-/* Hlavní nadpisy — bezpatkový font, tučně */
-.page-title,
-.hero-360-content .hero-title {
-  font-family: var(--font-sans);
-  font-style: normal;
-  font-weight: 700;
-}
-
-/* Logo menší */
-.logo-img {
-  height: 1.2rem;
-  width: auto;
-  display: block;
 }
