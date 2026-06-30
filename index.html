@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Atelier 55</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 </head>
 <body>
 
@@ -22,29 +24,29 @@
 
   <main class="main">
 
-    <section class="hero">
-      <div class="hero-media">
-        <!-- Sem vlož svůj hlavní obrázek nebo video -->
-        <img src="images/hero.jpg" alt="Atelier 55">
+    <!-- 360° PANORAMA -->
+    <section class="hero-360">
+      <div id="panorama"></div>
+      <div class="hero-360-hint" id="panoramaHint">
+        <span>↔ Táhni a prozkoumej prostor</span>
       </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Prostor pro tvorbu,<br>světlo pro vizi.</h1>
+      <div class="hero-360-content">
+        <h1 class="hero-title">Atelier 55</h1>
         <p class="hero-subtitle">Fotografické studio · Praha</p>
       </div>
     </section>
 
+    <!-- INTRO SEKCE -->
     <section class="section">
       <div class="section-label">O studiu</div>
       <h2 class="page-title">Místo, kde vznikají obrazy.</h2>
       <p class="page-body">
-        Atelier 55 je fotografické studio navržené pro profesionální i kreativní práci. 
+        Atelier 55 je fotografické studio navržené pro profesionální i kreativní práci.
         Nabízíme plně vybavený prostor s denním světlem, cyklorikou a kompletním technickým zázemím.
       </p>
-      <div style="margin-top: 2rem;">
+      <div style="margin-top: 2rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
         <a href="atelier.html" class="pill-btn">Prohlédnout studio</a>
-        &nbsp;
-        <a href="rezervace.html" class="pill-btn pill-btn-filled" style="margin-left: 0.5rem;">Rezervovat termín</a>
+        <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervovat termín</a>
       </div>
     </section>
 
@@ -58,5 +60,55 @@
   </footer>
 
   <script src="js/script.js"></script>
+
+  <script>
+    // Pannellum 360° viewer
+    pannellum.viewer('panorama', {
+      type: 'equirectangular',
+      panorama: 'images/360/atelier55-panorama.jpg',
+      autoLoad: true,
+      autoRotate: -1.5,          // Pomalá automatická rotace
+      autoRotateInactivityDelay: 3000,
+      compass: false,
+      showZoomCtrl: false,       // Skryjeme výchozí UI — máme vlastní hint
+      showFullscreenCtrl: true,
+      mouseZoom: true,
+      hfov: 100,                 // Zorný úhel
+      minHfov: 60,
+      maxHfov: 120,
+      pitch: 0,
+      yaw: 0,
+      strings: {
+        loadButtonLabel: 'Načíst 360°',
+        loadingLabel: 'Načítám…',
+        bylineLabel: '',
+        noPanoramaError: 'Panorama nenalezeno.',
+        fileAccessError: 'Nelze načíst soubor.',
+        malformedURLError: 'Chybná URL.',
+        iOS8WebGLError: 'Váš prohlížeč nepodporuje WebGL.',
+        genericWebGLError: 'Váš prohlížeč nepodporuje WebGL.',
+        textureSizeError: 'Obrázek je příliš velký.',
+        unknownError: 'Neznámá chyba.'
+      }
+    });
+
+    // Skryj hint po prvním dotyku/kliknutí
+    const hint = document.getElementById('panoramaHint');
+    const panoramaEl = document.getElementById('panorama');
+
+    if (hint && panoramaEl)
+    {
+      const hideHint = () =>
+      {
+        hint.classList.add('hidden');
+        panoramaEl.removeEventListener('mousedown', hideHint);
+        panoramaEl.removeEventListener('touchstart', hideHint);
+      };
+
+      panoramaEl.addEventListener('mousedown', hideHint);
+      panoramaEl.addEventListener('touchstart', hideHint);
+    }
+  </script>
+
 </body>
 </html>
