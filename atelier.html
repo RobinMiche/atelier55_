@@ -1,121 +1,88 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ateliér | Ateliér55</title>
-  <meta name="description" content="Prohlédněte si prostor Ateliér55 v Olomouci. Galerie ateliéru pro fotografii, film a kreativní produkci." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelier — Atelier 55</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand" aria-label="Ateliér55 domů">
-        <img src="images/logo.png" alt="Logo Ateliér55" class="brand-logo" />
-        <span class="brand-text">Ateliér55</span>
-      </a>
 
-      <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav">
-        <a href="index.html">Domů</a>
-        <a href="atelier.html" class="active">Ateliér</a>
-        <a href="technika.html">Technika</a>
-        <a href="rezervace.html">Rezervace</a>
-        <a href="kontakt.html">Kontakt</a>
+  <header class="page-header" id="pageHeader">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Atelier 55</a>
+      <nav class="nav-links">
+        <a href="atelier.html" class="pill-btn active">Atelier</a>
+        <a href="rent.html" class="pill-btn">Rent</a>
+        <a href="kontakt.html" class="pill-btn">Kontakt</a>
+        <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervace</a>
       </nav>
     </div>
   </header>
 
-  <main class="page-main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Prostor</p>
-        <h1>Galerie a informace o ateliéru</h1>
-        <p class="page-lead">
-          Světlý kreativní prostor pro fotografii, video a komorní produkci v Olomouci.
-        </p>
-      </div>
-    </section>
-
+  <main class="main">
     <section class="section">
-      <div class="container two-col">
-        <div>
-          <h2>Pro koho je Ateliér55 určen</h2>
+      <div class="section-label">Studio</div>
+      <h1 class="page-title">Atelier 55</h1>
+      <p class="page-body">
+        Světlý fotografický ateliér v srdci Prahy. Prostor je navržen pro komerční focení, 
+        portréty, módní editorialy i video produkci. Kapacita až 15 osob.
+      </p>
+
+      <div class="grid-2" style="margin-top: 3rem;">
+        <div class="card">
+          <div class="card-media">
+            <img src="images/atelier-1.jpg" alt="Hlavní sál">
+          </div>
+          <div class="card-body">
+            <div class="card-title">Hlavní sál</div>
+            <div class="card-meta">120 m² · Denní světlo</div>
+          </div>
         </div>
-        <div>
-          <p>
-            Ateliér55 je vhodný pro fotografy, filmaře, kreativce, značky i menší produkční týmy.
-            Využít jej lze pro portrétní focení, fashion editoriály, produktovou fotografii,
-            natáčení rozhovorů, kampaně, sociální obsah i menší komerční produkci.
-          </p>
-          <p>
-            Každou rezervaci řešíme individuálně, takže se dá prostor přizpůsobit konkrétním potřebám projektu.
-          </p>
+        <div class="card">
+          <div class="card-media">
+            <img src="images/atelier-2.jpg" alt="Zázemí">
+          </div>
+          <div class="card-body">
+            <div class="card-title">Zázemí & šatna</div>
+            <div class="card-meta">Oddělená místnost · Líčení</div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section class="section section-soft">
-      <div class="container">
-        <div class="gallery-grid">
-          <img src="images/gallery/atelier-1.jpg" alt="Ateliér55 galerie 1" />
-          <img src="images/gallery/atelier-2.jpg" alt="Ateliér55 galerie 2" />
-          <img src="images/gallery/atelier-3.jpg" alt="Ateliér55 galerie 3" />
-          <img src="images/gallery/atelier-4.jpg" alt="Ateliér55 galerie 4" />
-          <img src="images/gallery/atelier-5.jpg" alt="Ateliér55 galerie 5" />
-          <img src="images/gallery/atelier-6.jpg" alt="Ateliér55 galerie 6" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Možnosti využití</p>
-          <h2>Co se u nás dá realizovat</h2>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>Portrétní a fashion focení</h3>
-            <p>Čisté prostředí vhodné pro editoriály, lookbooky i osobní tvorbu.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Produktová fotografie</h3>
-            <p>Prostor pro menší sety, obsah pro e-shopy, kampaně a sociální sítě.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Video a rozhovory</h3>
-            <p>Natáčení interview, reels, promo videí nebo komorních produkčních výstupů.</p>
-          </article>
-        </div>
-      </div>
+      <table class="specs-table" style="margin-top: 3rem; max-width: 600px;">
+        <tr>
+          <td>Plocha</td>
+          <td>120 m²</td>
+        </tr>
+        <tr>
+          <td>Výška stropu</td>
+          <td>4,5 m</td>
+        </tr>
+        <tr>
+          <td>Světlo</td>
+          <td>Denní + studiové záblesky</td>
+        </tr>
+        <tr>
+          <td>Pozadí</td>
+          <td>Cyklorika bílá / šedá / černá</td>
+        </tr>
+        <tr>
+          <td>Kapacita</td>
+          <td>až 15 osob</td>
+        </tr>
+        <tr>
+          <td>Parkování</td>
+          <td>2 místa před budovou</td>
+        </tr>
+      </table>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>Ateliér55</h3>
-        <p>Kreativní prostor pro fotografii, film a produkci.</p>
-      </div>
-      <div>
-        <h4>Kontakt</h4>
-        <p><a href="mailto:production@nmmnt.com">production@nmmnt.com</a></p>
-        <p><a href="tel:+420702099678">+420 702 099 678</a></p>
-      </div>
-      <div>
-        <h4>Adresa</h4>
-        <p>Dobrovského 1038/35<br />779 00 Olomouc</p>
-      </div>
+  <footer>
+    <div class="page-footer">
+      <span class="footer-copy">© 2025 Atelier 55</span>
+      <a href="rezervace.html" class="pill-btn">Rezervace</a>
     </div>
   </footer>
 
