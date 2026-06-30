@@ -712,3 +712,237 @@ img {
     gap: 0.4rem;
   }
 }
+/* ============================================
+   360° HERO
+   ============================================ */
+.hero-360 {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 5rem);
+  overflow: hidden;
+  background: #111;
+}
+
+#panorama {
+  width: 100%;
+  height: 100%;
+}
+
+/* Pannellum reset — skryjeme výchozí branding */
+.pnlm-about-msg,
+.pnlm-load-button p {
+  display: none !important;
+}
+
+.pnlm-load-button {
+  background: #000 !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 0.6em 1.4em !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+}
+
+/* Hint overlay */
+.hero-360-hint {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.hero-360-hint.hidden {
+  opacity: 0;
+}
+
+.hero-360-hint span {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5em 1.2em;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,0.3);
+  white-space: nowrap;
+}
+
+/* Titulek přes panorama */
+.hero-360-content {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2rem;
+  z-index: 10;
+  color: #fff;
+  pointer-events: none;
+}
+
+.hero-360-content .hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+
+.hero-360-content .hero-subtitle {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+/* ============================================
+   GALERIE + LIGHTBOX
+   ============================================ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-top: 3rem;
+}
+
+.gallery-item {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+  background: #f0f0f0;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  display: block;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-img-wrap {
+  max-width: 90vw;
+  max-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img-wrap img {
+  max-width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 1.1rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+
+.lightbox-nav:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px)
+{
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lightbox-nav {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 0.9rem;
+  }
+
+  .lightbox-prev { left: 0.8rem; }
+  .lightbox-next { right: 0.8rem; }
+}
+
+@media (max-width: 480px)
+{
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
