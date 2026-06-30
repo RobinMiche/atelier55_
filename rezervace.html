@@ -3,111 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rezervace — Atelier 55</title>
+  <title>Rezervace — Ateliér 55</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <header class="page-header" id="pageHeader">
-  <div class="header-inner">
-    <a href="index.html" class="logo">
-      <img src="images/logo.png" alt="Ateliér 55" class="logo-img">
-    </a>
-    <nav class="nav-links">
-      <a href="atelier.html" class="pill-btn">Atelier</a>
-      <a href="rent.html" class="pill-btn">Rent</a>
-      <a href="kontakt.html" class="pill-btn">Kontakt</a>
-      <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervace</a>
-    </nav>
-  </div>
-</header>
-
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Ateliér 55" class="logo-img">
+      </a>
+      <nav class="nav-links">
+        <a href="atelier.html" class="pill-btn">Atelier</a>
+        <a href="rent.html" class="pill-btn">Rent</a>
+        <a href="kontakt.html" class="pill-btn">Kontakt</a>
+        <a href="rezervace.html" class="pill-btn pill-btn-filled active">Rezervace</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="main">
     <section class="section">
-      <div class="section-label">Rezervace</div>
-      <h1 class="page-title">Vyberte termín.</h1>
 
-      <div class="rezervace-layout">
+      <div class="section-label">Dostupnost · Rezervace</div>
+      <h1 class="page-title">Rezervovat termín</h1>
+      <p class="page-body">
+        Zkontroluj dostupnost v kalendáři a pošli nám poptávku.
+        Ozveme se do 24 hodin s potvrzením.
+      </p>
 
-        <!-- KALENDÁŘ -->
-        <div>
-          <div class="calendar-wrap">
-            <div class="calendar-header">
-              <button class="cal-nav" id="prevMonth">&#8592;</button>
-              <div class="calendar-month" id="calendarMonth"></div>
-              <button class="cal-nav" id="nextMonth">&#8594;</button>
-            </div>
-            <div class="calendar-weekdays">
-              <span>Po</span><span>Út</span><span>St</span>
-              <span>Čt</span><span>Pá</span><span>So</span><span>Ne</span>
-            </div>
-            <div class="calendar-grid" id="calendarGrid"></div>
-            <div class="calendar-legend">
-              <div class="legend-item">
-                <div class="legend-dot available"></div>
-                Volný
-              </div>
-              <div class="legend-item">
-                <div class="legend-dot occupied"></div>
-                Obsazený
-              </div>
-            </div>
-          </div>
+      <!-- ── KALENDÁŘ ── -->
+      <div class="cal-wrap">
+        <div class="cal-header">
+          <button class="cal-nav" id="calPrev">&#8592;</button>
+          <div class="cal-month-label" id="calMonthLabel"></div>
+          <button class="cal-nav" id="calNext">&#8594;</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-legend">
+          <span><span class="legend-dot legend-free"></span>Volno</span>
+          <span><span class="legend-dot legend-partial"></span>Částečně obsazeno</span>
+          <span><span class="legend-dot legend-busy"></span>Obsazeno</span>
+        </div>
+      </div>
+
+      <!-- ── FORMULÁŘ ── -->
+      <div class="form-wrap">
+        <div class="section-label" style="margin-top: 3rem">Poptávkový formulář</div>
+
+        <!-- Stavové zprávy -->
+        <div data-fs-success class="form-success">
+          ✓ Poptávka odeslána! Ozveme se do 24 hodin.
+        </div>
+        <div data-fs-error class="form-error">
+          Něco se nepovedlo. Zkuste to znovu nebo napište přímo na
+          <a href="mailto:production@nmmnt.com">production@nmmnt.com</a>.
         </div>
 
-        <!-- FORMULÁŘ -->
-        <div class="booking-form">
-          <div class="booking-form-title">Poptávka rezervace</div>
-          <div class="booking-form-subtitle">Vyplňte formulář a ozveme se do 24 hodin.</div>
+        <form id="reservationForm">
 
-          <div class="selected-date-display" id="selectedDateDisplay">
-            Vyberte datum v kalendáři →
+          <!-- Skrytá pole pro Formspree -->
+          <input type="hidden" name="_subject" value="Nová rezervace — Ateliér 55">
+          <input type="text"   name="_gotcha"  style="display:none">
+
+          <div class="form-group">
+            <label class="form-label" for="name">Jméno a příjmení *</label>
+            <input
+              class="form-input"
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Jan Novák"
+              data-fs-field
+            >
+            <span data-fs-error="name" class="field-error"></span>
           </div>
 
-          <div id="bookingFormInner">
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail *</label>
+            <input
+              class="form-input"
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="jan@example.com"
+              data-fs-field
+            >
+            <span data-fs-error="email" class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Telefon</label>
+            <input
+              class="form-input"
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+420 xxx xxx xxx"
+              data-fs-field
+            >
+          </div>
+
+          <div class="form-row">
             <div class="form-group">
-              <label class="form-label">Jméno a příjmení</label>
-              <input type="text" class="form-input" id="fieldName" placeholder="Jan Novák">
+              <label class="form-label" for="date">Datum *</label>
+              <input
+                class="form-input"
+                type="date"
+                id="date"
+                name="date"
+                required
+                data-fs-field
+              >
+              <span data-fs-error="date" class="field-error"></span>
             </div>
             <div class="form-group">
-              <label class="form-label">E-mail</label>
-              <input type="email" class="form-input" id="fieldEmail" placeholder="jan@email.cz">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Typ pronájmu</label>
-              <select class="form-select" id="fieldType">
-                <option value="">— Vyberte —</option>
-                <option value="puldne">Půlden (4 hod) — 3 500 Kč</option>
-                <option value="cely">Celý den (8 hod) — 6 000 Kč</option>
-                <option value="vikend">Víkend — na dotaz</option>
+              <label class="form-label" for="hours">Počet hodin</label>
+              <select class="form-input" id="hours" name="hours" data-fs-field>
+                <option value="1">1 hodina</option>
+                <option value="2">2 hodiny</option>
+                <option value="3">3 hodiny</option>
+                <option value="4">4 hodiny</option>
+                <option value="5">5 hodin</option>
+                <option value="6">6 hodin</option>
+                <option value="cely-den">Celý den</option>
               </select>
             </div>
-            <div class="form-group">
-              <label class="form-label">Poznámka</label>
-              <textarea class="form-textarea" id="fieldNote" placeholder="Popis projektu, počet osob, speciální požadavky…"></textarea>
-            </div>
-            <button class="form-submit" id="submitBtn" disabled>Odeslat poptávku</button>
           </div>
 
-          <div class="booking-success" id="bookingSuccess">
-            <div class="booking-success-icon">✓</div>
-            <div class="booking-success-title">Poptávka odeslána</div>
-            <div class="booking-success-text">Ozveme se do 24 hodin na váš e-mail.</div>
+          <div class="form-group">
+            <label class="form-label" for="type">Typ produkce</label>
+            <select class="form-input" id="type" name="type" data-fs-field>
+              <option value="">— vyberte —</option>
+              <option value="foto">Fotografování</option>
+              <option value="video">Video produkce</option>
+              <option value="post">Postprodukce</option>
+              <option value="jine">Jiné</option>
+            </select>
           </div>
-        </div>
 
+          <div class="form-group">
+            <label class="form-label" for="message">Zpráva / upřesnění</label>
+            <textarea
+              class="form-input form-textarea"
+              id="message"
+              name="message"
+              placeholder="Popište projekt, počet lidí, potřebné vybavení…"
+              data-fs-field
+            ></textarea>
+            <span data-fs-error="message" class="field-error"></span>
+          </div>
+
+          <button
+            type="submit"
+            class="pill-btn pill-btn-filled form-submit"
+            data-fs-submit-btn
+          >
+            Odeslat poptávku
+          </button>
+
+        </form>
       </div>
+
     </section>
   </main>
 
   <footer>
     <div class="page-footer">
-      <span class="footer-copy">© 2025 Atelier 55</span>
-      <a href="kontakt.html" class="pill-btn">Kontakt</a>
+      <span class="footer-copy">© 2025 Ateliér 55</span>
+      <a href="rezervace.html" class="pill-btn">Rezervace</a>
     </div>
   </footer>
 
+  <!-- Formspree Ajax SDK -->
+  <script>
+    window.formspree = window.formspree || function ()
+    {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
+    formspree('initForm', { formElement: '#reservationForm', formId: 'xzdlaanr' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+  <!-- Kalendář -->
   <script src="js/script.js"></script>
+  <script src="js/calendar.js"></script>
+
 </body>
 </html>
