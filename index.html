@@ -6,9 +6,11 @@
   <title>Ateliér55 | Prostor pro fotografii a film v Olomouci</title>
   <meta
     name="description"
-    content="Ateliér55 je prostor pro fotografii, film a vizuální produkci v Olomouci. Projdi si prostor v interaktivní 360° prohlídce."
+    content="Ateliér55 je prostor pro fotografii, film a vizuální produkci v Olomouci. Prohlédni si ateliér v interaktivní 360° prohlídce."
   />
   <meta name="author" content="Ateliér55" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +21,6 @@
 
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Pannellum -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
@@ -27,116 +28,136 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand" aria-label="Ateliér55 domů">
-        <img src="images/logo.png" alt="Logo Ateliér55" class="brand-logo" />
+    <div class="site-header__inner">
+      <nav class="site-nav site-nav--left" aria-label="Hlavní navigace vlevo">
+        <a href="atelier.html">Prostor</a>
+        <a href="technika.html">Technika</a>
+      </nav>
+
+      <a href="index.html" class="site-logo" aria-label="Ateliér55 domů">
+        <img src="images/logo.png" alt="Logo Ateliér55" />
       </a>
 
-      <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="site-actions">
+        <nav class="site-nav site-nav--right" aria-label="Hlavní navigace vpravo">
+          <a href="rezervace.html">Rezervace</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
 
-      <nav class="site-nav">
-        <a href="index.html" class="active">Domů</a>
-        <a href="atelier.html">Ateliér</a>
-        <a href="technika.html">Technika</a>
-        <a href="rezervace.html">Rezervace</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
+        <button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="atelier.html">Prostor</a>
+      <a href="technika.html">Technika</a>
+      <a href="rezervace.html">Rezervace</a>
+      <a href="kontakt.html">Kontakt</a>
     </div>
   </header>
 
   <main>
-    <section class="home-hero">
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <p class="hero-label">Ateliér55 / Olomouc</p>
+    <section class="hero">
+      <div class="hero__meta">Ateliér55 / Olomouc</div>
+
+      <div class="hero__grid">
+        <div class="hero__title-wrap">
           <h1>
-            Prostor pro fotografii,
-            film a vizuální produkci.
+            Prostor pro
+            fotografii,
+            film a
+            produkci.
           </h1>
         </div>
 
-        <div class="hero-note">
+        <div class="hero__text">
           <p>
-            Kreativní ateliér pro focení, natáčení a menší produkce.
-            Prohlédni si prostor v interaktivní 360° prohlídce a pošli nezávaznou poptávku.
+            Denní světlo, čistý interiér a flexibilní zázemí
+            pro focení, natáčení i menší produkce.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="panorama-section">
-      <div class="container">
-        <div class="panorama-heading">
-          <p class="section-kicker">360° prohlídka</p>
-          <h2>Projdi si prostor</h2>
-          <p>
-            Klikni a tažením myši se rozhlédni po ateliéru.
-          </p>
-        </div>
+    <section class="panorama-intro">
+      <div class="panorama-intro__top">
+        <p class="eyebrow">360°</p>
+        <p class="panorama-intro__caption">
+          Prohlédni si prostor interaktivně.
+        </p>
+      </div>
 
-        <div class="panorama-frame">
-          <div id="panorama-viewer"></div>
-        </div>
+      <div class="panorama-shell">
+        <div id="panorama-viewer" aria-label="360 stupňová prohlídka ateliéru"></div>
       </div>
     </section>
 
-    <section class="editorial-section">
-      <div class="container editorial-grid">
-        <div class="editorial-text">
-          <p class="section-kicker">O prostoru</p>
-          <h2>Ateliér55 je určen pro obraz, světlo a soustředěnou tvorbu.</h2>
+    <section class="statement">
+      <div class="statement__grid">
+        <div class="statement__title">
+          <p class="eyebrow">O prostoru</p>
+          <h2>
+            Ateliér navržený pro obraz,
+            světlo a soustředěnou práci.
+          </h2>
         </div>
 
-        <div class="editorial-copy">
+        <div class="statement__copy">
           <p>
-            Prostor je vhodný pro portrétní focení, fashion editoriály, produktovou fotografii,
-            natáčení rozhovorů, reklamní výstupy i sociální obsah. Součástí nabídky je také možnost
-            zapůjčení techniky a individuální domluva podle charakteru projektu.
+            Ateliér55 je vhodný pro portrétní fotografii, fashion editoriály,
+            produktové focení, natáčení rozhovorů, reklamní výstupy i obsah pro sociální sítě.
+          </p>
+          <p>
+            Prostor je možné rezervovat samostatně nebo včetně vybraného technického vybavení.
           </p>
 
-          <div class="editorial-actions">
-            <a href="atelier.html" class="text-link">Zobrazit prostor</a>
-            <a href="rezervace.html" class="text-link">Odeslat poptávku</a>
+          <div class="statement__links">
+            <a href="atelier.html">Zobrazit prostor</a>
+            <a href="rezervace.html">Odeslat poptávku</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="image-feature-section">
-      <div class="container image-feature-grid">
-        <div class="image-feature">
-          <img src="images/gallery/atelier-1.jpg" alt="Interiér Ateliér55" />
-        </div>
-        <div class="image-feature">
-          <img src="images/gallery/atelier-2.jpg" alt="Prostor Ateliér55" />
-        </div>
+    <section class="gallery-preview">
+      <div class="gallery-preview__grid">
+        <figure class="gallery-preview__item gallery-preview__item--large">
+          <img src="images/gallery/atelier-1.jpg" alt="Interiér ateliéru Ateliér55" />
+        </figure>
+
+        <figure class="gallery-preview__item gallery-preview__item--small">
+          <img src="images/gallery/atelier-2.jpg" alt="Detail prostoru Ateliér55" />
+        </figure>
+
+        <figure class="gallery-preview__item gallery-preview__item--wide">
+          <img src="images/gallery/atelier-3.jpg" alt="Prostor pro focení a produkci" />
+        </figure>
       </div>
     </section>
 
-    <section class="info-strip">
-      <div class="container info-strip-grid">
-        <div>
-          <p class="info-label">Lokalita</p>
-          <p>Dobrovského 1038/35, Olomouc</p>
-        </div>
-        <div>
-          <p class="info-label">Rezervace</p>
-          <p><a href="mailto:production@nmmnt.com">production@nmmnt.com</a></p>
-        </div>
-        <div>
-          <p class="info-label">Telefon</p>
-          <p><a href="tel:+420702099678">+420 702 099 678</a></p>
-        </div>
+    <section class="info-line">
+      <div class="info-line__item">
+        <span class="info-line__label">Místo</span>
+        <span>Olomouc</span>
+      </div>
+
+      <div class="info-line__item">
+        <span class="info-line__label">Kontakt</span>
+        <a href="mailto:production@nmmnt.com">production@nmmnt.com</a>
+      </div>
+
+      <div class="info-line__item">
+        <span class="info-line__label">Telefon</span>
+        <a href="tel:+420702099678">+420 702 099 678</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer minimal-footer">
-    <div class="container footer-minimal">
+  <footer class="site-footer">
+    <div class="site-footer__inner">
       <p>Ateliér55</p>
       <p>Foto / Film / Produkce</p>
     </div>
@@ -144,7 +165,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   <script src="js/script.js"></script>
-
   <script>
     pannellum.viewer("panorama-viewer", {
       type: "equirectangular",
