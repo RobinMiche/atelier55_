@@ -9,75 +9,121 @@
 <body>
 
   <header class="page-header" id="pageHeader">
-    <div class="header-inner">
-      <a href="index.html" class="logo">Atelier 55</a>
-      <nav class="nav-links">
-        <a href="atelier.html" class="pill-btn active">Atelier</a>
-        <a href="rent.html" class="pill-btn">Rent</a>
-        <a href="kontakt.html" class="pill-btn">Kontakt</a>
-        <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervace</a>
-      </nav>
-    </div>
-  </header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Ateliér 55" class="logo-img">
+    </a>
+    <nav class="nav-links">
+      <a href="atelier.html" class="pill-btn">Atelier</a>
+      <a href="rent.html" class="pill-btn">Rent</a>
+      <a href="kontakt.html" class="pill-btn">Kontakt</a>
+      <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervace</a>
+    </nav>
+  </div>
+</header>
+
 
   <main class="main">
     <section class="section">
-      <div class="section-label">Studio</div>
-      <h1 class="page-title">Atelier 55</h1>
-      <p class="page-body">
-        Světlý fotografický ateliér v srdci Prahy. Prostor je navržen pro komerční focení,
-        portréty, módní editorialy i video produkci. Kapacita až 15 osob.
-      </p>
+  <div class="section-label">Studio · Olomouc</div>
+  <h1 class="page-title">Ateliér55</h1>
+  <p class="page-body">
+    Ateliér jsme vytvořili pro každého, kdo chce realizovat své foto a video projekty
+    a hledá pro to ideální prostor. Nachází se v přízemí vnitrobloku na adrese
+    Dobrovského 35, Olomouc — klidné a příjemné místo pro tvůrčí proces,
+    ať už jde o produkci nebo postprodukci.
+  </p>
+  <p class="page-body" style="margin-top: 1rem;">
+    Snahou je mimo jiné vytvořit prostředí pro setkávání audiovizuálních tvůrců,
+    filmařů a fotografů. Prostor je k dispozici samostatně nebo i s vybavením —
+    možnost rentálu video techniky. Samozřejmostí je koupelna a toaleta.
+  </p>
 
-      <!-- 
-        GALERIE — jak přidat fotku:
-        Zkopíruj jeden <div class="gallery-item"> blok níže
-        a změň src na cestu k nové fotce v images/gallery/
-      -->
-      <div class="gallery-grid" id="galleryGrid">
+  <!-- GALERIE -->
+  <div class="gallery-grid" id="galleryGrid" style="margin-top: 3rem;">
+    <div class="gallery-item" data-index="0">
+      <img src="images/gallery/atelier-1.jpg" alt="Ateliér 55 — pohled 1" loading="lazy">
+    </div>
+    <div class="gallery-item" data-index="1">
+      <img src="images/gallery/atelier-2.jpg" alt="Ateliér 55 — pohled 2" loading="lazy">
+    </div>
+    <div class="gallery-item" data-index="2">
+      <img src="images/gallery/atelier-3.jpg" alt="Ateliér 55 — pohled 3" loading="lazy">
+    </div>
+    <!-- Sem přidávej další fotky stejným způsobem -->
+  </div>
 
-        <div class="gallery-item" data-index="0">
-          <img src="images/gallery/atelier-1.jpg" alt="Atelier 55 — pohled 1" loading="lazy">
-        </div>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
+    <div class="lightbox-img-wrap">
+      <img src="" alt="" id="lightboxImg">
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
 
-        <div class="gallery-item" data-index="1">
-          <img src="images/gallery/atelier-2.jpg" alt="Atelier 55 — pohled 2" loading="lazy">
-        </div>
+  <!-- PARAMETRY -->
+  <div class="section-label" style="margin-top: 4rem;">Parametry prostoru</div>
 
-        <div class="gallery-item" data-index="2">
-          <img src="images/gallery/atelier-3.jpg" alt="Atelier 55 — pohled 3" loading="lazy">
-        </div>
+  <div class="specs-highlights">
+    <div class="spec-block">
+      <div class="spec-number">55</div>
+      <div class="spec-unit">m²</div>
+      <div class="spec-desc">užitá plocha</div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-number">4</div>
+      <div class="spec-unit">m</div>
+      <div class="spec-desc">výška stropu</div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-number">550</div>
+      <div class="spec-unit">cm</div>
+      <div class="spec-desc">šířka prostoru</div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-number">1120</div>
+      <div class="spec-unit">cm</div>
+      <div class="spec-desc">délka prostoru</div>
+    </div>
+  </div>
 
-        <!-- Sem přidávej další fotky stejným způsobem -->
+  <table class="specs-table" style="max-width: 640px; margin-top: 2rem;">
+    <tr>
+      <td>Osvětlení</td>
+      <td>Zářivky, UV zářivky, velká okna orientovaná na východ</td>
+    </tr>
+    <tr>
+      <td>Poloha</td>
+      <td>Přízemí, samostatný přístavek ve vnitrobloku</td>
+    </tr>
+    <tr>
+      <td>Příjezd</td>
+      <td>Autem, dodávkou — možnost vjet i motorkou nebo čtyřkolkou</td>
+    </tr>
+    <tr>
+      <td>Parkování</td>
+      <td>Před domem nebo v ulici</td>
+    </tr>
+    <tr>
+      <td>Zázemí</td>
+      <td>Koupelna, toaleta</td>
+    </tr>
+    <tr>
+      <td>Vybavení</td>
+      <td>Pronájem s vybavením i bez, možnost rentálu video techniky</td>
+    </tr>
+  </table>
 
-      </div>
+  <div style="margin-top: 2.5rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
+    <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervovat termín</a>
+    <a href="kontakt.html" class="pill-btn">Kontakt</a>
+  </div>
 
-      <!-- LIGHTBOX -->
-      <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">✕</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
-        <div class="lightbox-img-wrap">
-          <img src="" alt="" id="lightboxImg">
-        </div>
-        <div class="lightbox-counter" id="lightboxCounter"></div>
-      </div>
+</section>
 
-      <!-- SPECS -->
-      <table class="specs-table" style="margin-top: 4rem; max-width: 600px;">
-        <tr><td>Plocha</td><td>120 m²</td></tr>
-        <tr><td>Výška stropu</td><td>4,5 m</td></tr>
-        <tr><td>Světlo</td><td>Denní + studiové záblesky</td></tr>
-        <tr><td>Pozadí</td><td>Cyklorika bílá / šedá / černá</td></tr>
-        <tr><td>Kapacita</td><td>až 15 osob</td></tr>
-        <tr><td>Parkování</td><td>2 místa před budovou</td></tr>
-      </table>
-
-      <div style="margin-top: 2.5rem;">
-        <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervovat termín</a>
-      </div>
-
-    </section>
   </main>
 
   <footer>
