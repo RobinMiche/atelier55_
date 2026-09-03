@@ -498,9 +498,19 @@
 
 <script>
 /* ══════════════════════════════════════════
-   KONFIGURACE — změň heslo zde
+   KONFIGURACE — heslo (jen SHA-256 hash, ne heslo samotné)
+   Nové heslo nastavíš takto:
+   1) v Terminálu spusť:  printf 'TVOJE_NOVE_HESLO' | shasum -a 256
+   2) výsledný hash (64 znaků) vlož níže místo stávajícího
+   Aktuální hash odpovídá heslu 'atelier55admin' — ZMĚŇ HO.
 ══════════════════════════════════════════ */
-const ADMIN_PASSWORD = 'atelier55admin'; // ← ZMĚŇ TOTO HESLO
+const ADMIN_PASSWORD_HASH = 'c85a624e1343fcd7b5145fe3142730bf887ae540d2bed921fed6d2dcfac956ac';
+
+async function sha256Hex(text)
+{
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 const DAYS_CS = ['Ne','Po','Út','St','Čt','Pá','So'];
 const MONTHS_CS = [
@@ -520,10 +530,11 @@ let isDirty  = false;
 /* ══════════════════════════════════════════
    LOGIN
 ══════════════════════════════════════════ */
-function checkPassword()
+async function checkPassword()
 {
   const val = document.getElementById('passwordInput').value;
-  if (val === ADMIN_PASSWORD)
+  const hash = await sha256Hex(val);
+  if (hash === ADMIN_PASSWORD_HASH)
   {
     sessionStorage.setItem('a55admin', '1');
     showAdmin();
