@@ -1001,3 +1001,266 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ============================================
+   REZERVACE — KALENDÁŘ (aktuální markup)
+   ============================================ */
+.cal-wrap {
+  border: 1px solid var(--color-border);
+  max-width: 640px;
+  margin-top: 2.5rem;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cal-month-label {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.cal-weekday {
+  text-align: center;
+  padding: 0.7rem 0;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cal-grid .cal-day.free    { background: var(--color-available); }
+.cal-grid .cal-day.partial { background: #d8d8d8; color: #333; }
+.cal-grid .cal-day.busy    {
+  background: var(--color-occupied);
+  color: var(--color-occupied-text);
+  cursor: not-allowed;
+}
+
+.cal-grid .cal-day.selectable:hover { background: #f0f0f0; }
+.cal-grid .cal-day.partial.selectable:hover { background: #cfcfcf; }
+
+.cal-grid .cal-day.selected {
+  background: #000;
+  color: #fff;
+  font-weight: 500;
+}
+
+.cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.cal-legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.legend-dot.legend-free    { background: var(--color-available); }
+.legend-dot.legend-partial { background: #d8d8d8; border-color: #d8d8d8; }
+.legend-dot.legend-busy    { background: var(--color-occupied); border-color: var(--color-occupied); }
+
+/* ============================================
+   REZERVACE — FORMULÁŘ (aktuální markup)
+   ============================================ */
+.form-wrap {
+  max-width: 640px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-success,
+.form-error {
+  display: none;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--color-border);
+}
+
+.form-success {
+  border-color: #2d6a2d;
+  color: #2d6a2d;
+  background: #f3f8f3;
+}
+
+.form-error {
+  border-color: #c0392b;
+  color: #c0392b;
+  background: #fbf3f2;
+}
+
+.field-error {
+  display: block;
+  font-size: 0.72rem;
+  color: #c0392b;
+  margin-top: 0.35rem;
+  min-height: 0.9rem;
+}
+
+.form-submit {
+  border-radius: var(--radius-pill);
+}
+
+/* ============================================
+   KOŠÍK TECHNIKY
+   ============================================ */
+.cart-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.4rem;
+  border: 1px solid var(--color-border);
+  margin-top: 2.5rem;
+  position: sticky;
+  top: 4.5rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 50;
+}
+
+.cart-bar strong {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.cart-bar #cart-count {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-left: 0.4rem;
+  color: var(--color-text);
+}
+
+.add-to-cart.in-cart {
+  background: var(--color-pill-bg);
+  color: var(--color-pill-text);
+}
+
+.gear-body {
+  padding: 1.4rem 1.2rem;
+}
+
+.gear-cat {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.4rem;
+}
+
+.gear-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.gear-desc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.gear-price {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.2rem;
+}
+
+/* Shrnutí vybrané techniky na rezervaci */
+.cart-summary {
+  border: 1px solid var(--color-border);
+  padding: 1.2rem 1.4rem;
+  margin-top: 2.5rem;
+  background: #fafafa;
+}
+
+.cart-summary-head {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.8rem;
+}
+
+.cart-summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.cart-summary-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.4rem;
+}
+
+.cart-summary-list li span {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.cart-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+
+.cart-clear:hover { color: var(--color-text); }
+
+@media (max-width: 600px)
+{
+  .form-row { grid-template-columns: 1fr; }
+}
