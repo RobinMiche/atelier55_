@@ -12,6 +12,47 @@ if (header)
 }
 
 /* ============================================
+   MOBILNÍ NAVIGACE — hamburger
+   ============================================ */
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.querySelector('.nav-links');
+
+if (navToggle && navLinks)
+{
+  navToggle.addEventListener('click', () =>
+  {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Zavři menu po kliknutí na odkaz
+  navLinks.querySelectorAll('a').forEach(a =>
+  {
+    a.addEventListener('click', () =>
+    {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+/* ============================================
+   HERO 360 — šipka „scrolluj dolů"
+   ============================================ */
+const scrollDown = document.getElementById('scrollDown');
+
+if (scrollDown)
+{
+  scrollDown.addEventListener('click', () =>
+  {
+    const target = document.querySelector('main .section') || document.querySelector('.section');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+/* ============================================
    LIGHTBOX — galerie
    ============================================ */
 const galleryGrid   = document.getElementById('galleryGrid');
