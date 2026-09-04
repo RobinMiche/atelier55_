@@ -1367,6 +1367,32 @@ img {
 
 .gear-catalog .card {
   display: flex;
+  flex-direction: column;
+}
+
+/* Fotka produktu — box je skrytý a ukáže se, JEN když se fotka načte (onload).
+   Chybějící fotka → žádný prázdný box, karta zůstane čistě textová. */
+.gear-media {
+  display: none;
+  aspect-ratio: 4 / 3;
+  background: #f2f2f0;
+  overflow: hidden;
+}
+
+.gear-media.has-img {
+  display: block;
+}
+
+.gear-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gear-catalog .card:hover .gear-media img {
+  transform: scale(1.04);
 }
 
 .gear-catalog .gear-body {
