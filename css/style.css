@@ -1351,6 +1351,44 @@ img {
   50%      { transform: translateX(-50%) translateY(6px); }
 }
 
+/* ============================================
+   KATALOG TECHNIKY — kategorie + kompaktní karty
+   ============================================ */
+.gear-cat-title {
+  margin-top: 3rem;
+}
+
+.gear-catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.gear-catalog .card {
+  display: flex;
+}
+
+.gear-catalog .gear-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.gear-catalog .gear-name {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.gear-catalog .gear-price {
+  margin-top: auto;   /* cena + tlačítko drží dole → karty jsou zarovnané */
+  margin-bottom: 1rem;
+}
+
+.gear-catalog .add-to-cart {
+  width: 100%;
+}
+
 @media (max-width: 600px) {
   /* Hamburger zapnout (musí být až za základním .nav-toggle{display:none}) */
   .nav-toggle { display: flex; }
