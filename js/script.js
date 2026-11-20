@@ -138,3 +138,45 @@ if (galleryGrid && lightbox)
     }
   });
 }
+
+/* ============================================
+   PLOVOUCÍ REZERVACE — pravý dolní roh, jede se scrollem
+   (na rezervaci se nezobrazuje; ukazuje počet položek v poptávce)
+   ============================================ */
+(function ()
+{
+  if (/rezervace\.html$/.test(location.pathname)) return;
+
+  const a = document.createElement('a');
+  a.href = 'rezervace.html';
+  a.className = 'float-book';
+  a.setAttribute('aria-label', 'Rezervace termínu');
+  a.innerHTML =
+    '<span class="float-book-text"><span class="float-book-kicker">Volný termín?</span>' +
+    '<span class="float-book-title">Rezervace</span></span>' +
+    '<span class="float-book-arrow">→</span>';
+  document.body.appendChild(a);
+
+  const arrow = a.querySelector('.float-book-arrow');
+
+  function updateCount()
+  {
+    let n = 0;
+    try { n = (JSON.parse(localStorage.getItem('a55cart')) || []).length; } catch (e) {}
+    let badge = arrow.querySelector('.float-book-count');
+    if (n && !badge)
+    {
+      badge = document.createElement('span');
+      badge.className = 'float-book-count';
+      arrow.appendChild(badge);
+    }
+    if (badge) n ? (badge.textContent = n) : badge.remove();
+  }
+
+  updateCount();
+  setTimeout(() => a.classList.add('show'), 600);
+  document.addEventListener('click', e =>
+  {
+    if (e.target.closest && e.target.closest('.add-to-cart')) setTimeout(updateCount, 0);
+  });
+})();

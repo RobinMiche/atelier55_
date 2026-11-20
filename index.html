@@ -66,17 +66,26 @@
 
   <main class="main">
 
-    <!-- 360° PANORAMA -->
-    <section class="hero-360">
-      <div id="panorama"></div>
-      <div class="hero-360-hint" id="panoramaHint">
-        <span>↔ Táhni a prozkoumej prostor</span>
-      </div>
+    <!-- VIDEO HERO -->
+    <section class="hero-video">
+      <iframe src="https://player.vimeo.com/video/1248284833?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"
+              title="Ateliér 55 — video" allow="autoplay; fullscreen; picture-in-picture" loading="eager"></iframe>
       <div class="hero-360-content">
         <h1 class="hero-title">Ateliér 55</h1>
         <p class="hero-subtitle">Fotografické studio · Olomouc</p>
       </div>
       <button class="scroll-down" id="scrollDown" aria-label="Posunout na obsah">↓</button>
+    </section>
+
+    <!-- 360° PROHLÍDKA -->
+    <section class="section" style="padding-bottom: 0;">
+      <div class="section-label">Prohlídka 360°</div>
+      <div class="tour-360">
+        <div id="panorama"></div>
+        <div class="hero-360-hint" id="panoramaHint">
+          <span>↔ Táhni a prozkoumej prostor</span>
+        </div>
+      </div>
     </section>
 
     <!-- INTRO SEKCE -->
@@ -88,12 +97,135 @@
     Ateliér55 se nachází v klidném vnitrobloku v Olomouci, s možností příjezdu autem
     i dodávkou přímo k prostoru.
   </p>
-  <div style="margin-top: 2rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
-    <a href="atelier.html" class="pill-btn">Prohlédnout ateliér</a>
-    <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervovat termín</a>
-  </div>
 </section>
 
+    <!-- O ATELIÉRU (stejný obsah jako atelier.html) -->
+    <section class="section home-atelier">
+  <p class="page-body">
+    Ateliér jsme vytvořili pro každého, kdo chce realizovat své foto a video projekty
+    a hledá pro to ideální prostor. Nachází se v přízemí vnitrobloku na adrese
+    Dobrovského 35, Olomouc — klidné a příjemné místo pro tvůrčí proces,
+    ať už jde o produkci nebo postprodukci.
+  </p>
+  <p class="page-body" style="margin-top: 1rem;">
+    Snahou je mimo jiné vytvořit prostředí pro setkávání audiovizuálních tvůrců,
+    filmařů a fotografů. Prostor je k dispozici samostatně nebo i s vybavením —
+    možnost rentálu video techniky. Samozřejmostí je koupelna a toaleta.
+  </p>
+
+  <!-- GALERIE -->
+  <div class="gallery-grid" id="galleryGrid" style="margin-top: 2.5rem;">
+    <div class="gallery-item" data-index="0">
+      <img src="images/gallery/atelier-1.jpg" alt="Ateliér 55 — pohled 1" loading="lazy">
+    </div>
+    <div class="gallery-item" data-index="1">
+      <img src="images/gallery/atelier-2.jpg" alt="Ateliér 55 — pohled 2" loading="lazy">
+    </div>
+    <div class="gallery-item" data-index="2">
+      <img src="images/gallery/atelier-3.jpg" alt="Ateliér 55 — pohled 3" loading="lazy">
+    </div>
+    <!-- Sem přidávej další fotky stejným způsobem -->
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
+    <div class="lightbox-img-wrap">
+      <img src="" alt="" id="lightboxImg">
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <!-- PARAMETRY -->
+  <div class="section-label" style="margin-top: 4rem;">Parametry prostoru</div>
+
+  <div class="specs-highlights">
+    <div class="spec-block">
+      <div class="spec-number">55</div>
+      <div class="spec-unit">m²</div>
+      <div class="spec-desc">užitá plocha</div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-number">4</div>
+      <div class="spec-unit">m</div>
+      <div class="spec-desc">výška stropu</div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-number">550</div>
+      <div class="spec-unit">cm</div>
+      <div class="spec-desc">šířka prostoru</div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-number">1120</div>
+      <div class="spec-unit">cm</div>
+      <div class="spec-desc">délka prostoru</div>
+    </div>
+  </div>
+
+  <table class="specs-table" style="max-width: 640px; margin-top: 2rem;">
+    <tr>
+      <td>Osvětlení</td>
+      <td>Zářivky, UV zářivky, velká okna orientovaná na východ</td>
+    </tr>
+    <tr>
+      <td>Poloha</td>
+      <td>Přízemí, samostatný přístavek ve vnitrobloku</td>
+    </tr>
+    <tr>
+      <td>Příjezd</td>
+      <td>Autem, dodávkou — možnost vjet i motorkou nebo čtyřkolkou</td>
+    </tr>
+    <tr>
+      <td>Parkování</td>
+      <td>Před domem nebo v ulici</td>
+    </tr>
+    <tr>
+      <td>Zázemí</td>
+      <td>Koupelna, toaleta</td>
+    </tr>
+    <tr>
+      <td>Vybavení</td>
+      <td>Pronájem s vybavením i bez, možnost rentálu video techniky</td>
+    </tr>
+  </table>
+
+  <!-- CENÍK PRONÁJMU PROSTORU -->
+  <div class="section-label" style="margin-top: 4rem;">Ceník pronájmu prostoru</div>
+
+  <table class="specs-table" style="max-width: 640px; margin-top: 0;">
+    <tr>
+      <td>Hodinová sazba</td>
+      <td>770 Kč / hod</td>
+    </tr>
+    <tr>
+      <td>Každá další započatá hodina</td>
+      <td>660 Kč</td>
+    </tr>
+    <tr>
+      <td>Celý den</td>
+      <td>Akční cena — dohodou</td>
+    </tr>
+    <tr>
+      <td>Vybavení</td>
+      <td>S vybavením i bez — dle dohody</td>
+    </tr>
+  </table>
+
+  <p class="page-body" style="margin-top: 1.5rem;">
+    Ke studiu si můžeš přiobjednat kamery, objektivy, světla, zvuk i ostření.
+    Kompletní ceník techniky včetně zvýhodněných setů najdeš na stránce
+    <a href="technika.html" style="text-decoration: underline; text-underline-offset: 3px;">Technika</a>.
+  </p>
+
+  <div style="margin-top: 2.5rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
+    <a href="rezervace.html" class="pill-btn pill-btn-filled">Rezervovat termín</a>
+    <a href="technika.html" class="pill-btn">Technika k pronájmu</a>
+    <a href="kontakt.html" class="pill-btn">Kontakt</a>
+  </div>
+
+</section>
 
   </main>
 
@@ -120,7 +252,7 @@
       compass: false,
       showZoomCtrl: false,       // Skryjeme výchozí UI — máme vlastní hint
       showFullscreenCtrl: true,
-      mouseZoom: true,
+      mouseZoom: false,          // kolečko myši scrolluje stránku, ne zoom
       hfov: 100,                 // Zorný úhel
       minHfov: 60,
       maxHfov: 120,

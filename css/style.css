@@ -1370,30 +1370,140 @@ img {
   flex-direction: column;
 }
 
-/* Fotka produktu — box je skrytý a ukáže se, JEN když se fotka načte (onload).
-   Chybějící fotka → žádný prázdný box, karta zůstane čistě textová. */
+/* Fotka produktu — e-shop karta: hover = druhá fotka, klik = galerie */
 .gear-media {
-  display: none;
+  position: relative;
   aspect-ratio: 1 / 1;
   background: #f2f2f0;
   overflow: hidden;
 }
 
-.gear-media.has-img {
-  display: block;
-}
+.gear-media.zoomable { cursor: zoom-in; }
 
 .gear-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease, opacity 0.45s ease;
 }
 
-.gear-catalog .card:hover .gear-media img {
-  transform: scale(1.04);
+.gear-media .gear-img-alt {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
 }
+
+.gear-catalog .card:hover .gear-media img { transform: scale(1.04); }
+.gear-catalog .card:hover .gear-media .gear-img-alt { opacity: 1; }
+
+.gear-count {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.9);
+  padding: 0.25em 0.7em;
+  border-radius: var(--radius-pill);
+}
+
+/* Bez fotky: typografická „etiketa" s názvem produktu */
+.gear-media.no-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem;
+  background:
+    radial-gradient(circle at 80% 15%, rgba(255,255,255,0.9), transparent 55%),
+    linear-gradient(160deg, #f4f3ef, #e6e4de);
+}
+
+.gear-ph-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  line-height: 1.05;
+  color: #2a2a2a;
+}
+
+.gear-media.no-img span {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.gear-badge {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  z-index: 2;
+  background: #000;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3em 0.8em;
+  border-radius: var(--radius-pill);
+}
+
+.gear-catalog .gear-desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+/* Filtr kategorií v sticky liště */
+.gear-filter {
+  flex-basis: 100%;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-top: 0.2rem;
+}
+.gear-filter::-webkit-scrollbar { display: none; }
+
+.gear-chip {
+  flex: none;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.35em 0.9em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.gear-chip:hover { border-color: var(--color-text); }
+.gear-chip.active { background: #000; color: #fff; border-color: #000; }
+
+/* Lightbox produktu */
+.gear-box-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 1.4rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  color: #fff;
+  white-space: nowrap;
+  max-width: 92vw;
+  overflow: hidden;
+}
+.gear-box-name { font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; overflow: hidden; text-overflow: ellipsis; }
+.gear-box-price, .gear-box-count { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+.gear-box .lightbox-img-wrap img { max-height: 80vh; }
 
 .gear-catalog .gear-body {
   display: flex;
@@ -1492,3 +1602,121 @@ img {
   .hero-360 { height: 74vh; }
   .hero-360-hint { bottom: 4.2rem; }
 }
+
+/* ============================================
+   VIDEO HERO (úvod)
+   ============================================ */
+.hero-video {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 5rem);
+  overflow: hidden;
+  background: #111;
+}
+
+.hero-video iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;          /* 16:9 */
+  min-height: 100%;
+  min-width: 177.78vh;      /* 16:9 → vždy pokryje celou plochu */
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
+}
+
+.hero-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.45), transparent 45%);
+  pointer-events: none;
+}
+
+.hero-video .hero-360-content { z-index: 2; }
+.hero-video .scroll-down { z-index: 3; }
+
+/* 360° prohlídka pod videem */
+.tour-360 {
+  position: relative;
+  height: 75vh;
+  min-height: 420px;
+  margin-top: 1.5rem;
+  background: #111;
+  overflow: hidden;
+}
+
+/* Home: blok s parametry a galerií */
+.home-atelier { padding-top: 0; }
+
+@media (max-width: 600px) {
+  .hero-video { height: 74vh; }
+  .tour-360 { height: 60vh; min-height: 340px; }
+}
+
+/* ============================================
+   PLOVOUCÍ REZERVACE (pravý dolní roh)
+   ============================================ */
+.float-book {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.55rem 0.55rem 1.2rem;
+  background: #000;
+  color: #fff;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transform: translateY(160%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(.2,.8,.2,1), opacity 0.4s ease;
+}
+
+.float-book.show { transform: translateY(0); opacity: 1; }
+
+.float-book-text { display: flex; flex-direction: column; line-height: 1.15; }
+.float-book-kicker { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; }
+.float-book-title { font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; }
+
+.float-book-arrow {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.float-book:hover .float-book-arrow { transform: translateX(3px); }
+
+.float-book-count {
+  position: absolute;
+  top: -0.3rem;
+  right: -0.3rem;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.25rem;
+  border-radius: var(--radius-pill);
+  background: #d23c2a;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 500;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 600px) {
+  .float-book { right: 0.8rem; bottom: 0.8rem; padding-left: 1rem; }
+  .float-book-title { font-size: 1rem; }
+}
+
+[hidden] { display: none !important; }
